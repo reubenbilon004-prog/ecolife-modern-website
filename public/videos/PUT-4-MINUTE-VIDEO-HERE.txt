@@ -1,0 +1,1 @@
+Rename your longer testimonial video to testimonial-full.mp4 and place it in this folder.
