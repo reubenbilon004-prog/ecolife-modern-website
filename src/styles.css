@@ -1834,3 +1834,554 @@ em { font-family: "Playfair Display", Georgia, serif; font-weight: 500; }
     font-size: 10px;
   }
 }
+/* =========================================================
+   ECOLIFE APP PROMO — HERO
+   ========================================================= */
+
+.hero-app-promo {
+  position: relative;
+  width: min(650px, 100%);
+  margin-top: 24px;
+  padding: 14px 15px 14px 17px;
+
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  align-items: center;
+  gap: 14px;
+
+  border: 1px solid rgba(23, 49, 38, 0.11);
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.72),
+      rgba(239, 244, 233, 0.72)
+    );
+
+  box-shadow:
+    0 16px 45px rgba(23, 49, 38, 0.08),
+    0 2px 8px rgba(23, 49, 38, 0.04);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.hero-app-promo:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(23, 49, 38, 0.18);
+
+  box-shadow:
+    0 22px 55px rgba(23, 49, 38, 0.12),
+    0 0 35px rgba(143, 174, 126, 0.12);
+}
+
+
+/* Soft living glow */
+
+.hero-app-glow {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+
+  left: -60px;
+  top: -70px;
+
+  border-radius: 50%;
+
+  background: rgba(143, 174, 126, 0.22);
+
+  filter: blur(30px);
+
+  pointer-events: none;
+
+  animation: appGlow 5s ease-in-out infinite;
+}
+
+
+/* Phone icon */
+
+.hero-app-icon {
+  position: relative;
+  z-index: 1;
+
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 14px;
+
+  background: var(--ink);
+  color: #fff;
+
+  box-shadow:
+    0 8px 18px rgba(23, 49, 38, 0.16);
+}
+
+
+/* Content */
+
+.hero-app-content {
+  position: relative;
+  z-index: 1;
+
+  min-width: 0;
+}
+
+.hero-app-label {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+
+  margin-bottom: 4px;
+
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+}
+
+.hero-app-dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #87a878;
+
+  box-shadow:
+    0 0 0 5px rgba(135, 168, 120, 0.12);
+}
+
+.hero-app-badge {
+  padding: 4px 7px;
+
+  border-radius: 999px;
+
+  background: rgba(23, 49, 38, 0.07);
+
+  color: var(--ink-2);
+
+  font-size: 7px;
+  letter-spacing: 0.12em;
+}
+
+
+/* Main app heading */
+
+.hero-app-content h3 {
+  position: relative;
+  z-index: 1;
+
+  margin: 0;
+
+  font-size: 17px;
+  line-height: 1.2;
+
+  font-weight: 500;
+  letter-spacing: -0.025em;
+
+  color: var(--ink);
+}
+
+.hero-app-content h3 em {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+}
+
+
+/* Features */
+
+.hero-app-features {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+
+  margin-top: 7px;
+
+  color: var(--muted);
+
+  font-size: 9px;
+}
+
+.hero-app-features i {
+  font-style: normal;
+  opacity: 0.45;
+}
+
+
+/* CTA */
+
+.hero-app-button {
+  position: relative;
+  z-index: 2;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  flex-shrink: 0;
+
+  padding: 11px 14px;
+
+  border: 1px solid rgba(23, 49, 38, 0.12);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.68);
+
+  color: var(--ink);
+
+  font-size: 10px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 5px 15px rgba(23, 49, 38, 0.05);
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.hero-app-button:hover {
+  background: var(--ink);
+  color: #fff;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 10px 22px rgba(23, 49, 38, 0.15);
+}
+
+.hero-app-button svg {
+  transition: transform 0.25s ease;
+}
+
+.hero-app-button:hover svg {
+  transform: translate(2px, -2px);
+}
+
+
+/* Living animation */
+
+@keyframes appGlow {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: scale(1.15);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .hero-app-promo {
+    grid-template-columns: 38px 1fr;
+    gap: 11px;
+
+    padding: 13px;
+
+    border-radius: 19px;
+  }
+
+  .hero-app-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  .hero-app-content h3 {
+    font-size: 15px;
+  }
+
+  .hero-app-features {
+    font-size: 8px;
+    gap: 5px;
+  }
+
+  .hero-app-button {
+    grid-column: 1 / -1;
+
+    width: 100%;
+
+    justify-content: center;
+
+    padding: 11px 14px;
+  }
+}
+
+
+@media (max-width: 420px) {
+
+  .hero-app-label {
+    font-size: 7px;
+  }
+
+  .hero-app-content h3 {
+    font-size: 14px;
+  }
+
+  .hero-app-features {
+    line-height: 1.5;
+  }
+
+  .hero-app-features i {
+    display: none;
+  }
+
+  .hero-app-features span {
+    display: inline-block;
+    margin-right: 5px;
+  }
+}
+.hero-app-card {
+  position: relative;
+  width: min(680px, 100%);
+  margin-top: 28px;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 16px 18px;
+
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(23, 49, 38, 0.12);
+
+  box-shadow:
+    0 18px 45px rgba(23, 49, 38, 0.09),
+    0 0 40px rgba(143, 174, 126, 0.12);
+
+  color: var(--ink);
+  text-decoration: none;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.hero-app-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 24px 55px rgba(23, 49, 38, 0.14),
+    0 0 55px rgba(143, 174, 126, 0.2);
+}
+
+.hero-app-logo {
+  width: 76px;
+  height: 76px;
+
+  flex-shrink: 0;
+
+  border-radius: 18px;
+
+  object-fit: cover;
+
+  box-shadow:
+    0 8px 20px rgba(23, 49, 38, 0.12);
+}
+
+.hero-app-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-app-kicker {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 9px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+
+  color: #718078;
+}
+
+.hero-app-info h3 {
+  margin: 0;
+
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: -.025em;
+}
+
+.hero-app-info h3 em {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+}
+
+.hero-app-info p {
+  margin: 7px 0 0;
+
+  font-size: 10px;
+  color: #718078;
+}
+
+.hero-app-cta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  flex-shrink: 0;
+
+  padding: 12px 15px;
+
+  border-radius: 999px;
+
+  background: var(--ink);
+  color: #fff;
+
+  font-size: 10px;
+}
+
+@media (max-width: 600px) {
+  .hero-app-card {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 14px;
+  }
+
+  .hero-app-logo {
+    width: 64px;
+    height: 64px;
+  }
+
+  .hero-app-info {
+    flex: 1;
+  }
+
+  .hero-app-info h3 {
+    font-size: 16px;
+  }
+
+  .hero-app-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* =========================================
+   ADDITIONAL TESTIMONIAL VIDEOS
+   Same visual language as the original testimonial
+   ========================================= */
+
+.testimonial-extra-card {
+  margin-top: 24px;
+}
+
+.testimonial-extra-card .video-thumbnail {
+  height: 560px;
+}
+
+.testimonial-description {
+  padding: 22px 28px 26px;
+  background: #17291f;
+  color: white;
+}
+
+.testimonial-description > span {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.testimonial-description h3 {
+  margin: 0 0 8px;
+  color: white;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.testimonial-description p {
+  max-width: 680px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* YouTube testimonial modal */
+
+.video-modal-content {
+  width: min(1000px, 92vw);
+  overflow: hidden;
+  border-radius: 20px;
+  background: #000;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+.video-modal-content iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+@media (max-width: 850px) {
+  .testimonial-extra-card .video-thumbnail {
+    height: 430px;
+  }
+}
+
+@media (max-width: 520px) {
+  .testimonial-extra-card {
+    margin-top: 18px;
+    border-radius: 20px;
+  }
+
+  .testimonial-extra-card .video-thumbnail {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .testimonial-description {
+    padding: 18px 20px 22px;
+  }
+
+  .testimonial-description h3 {
+    font-size: 20px;
+  }
+
+  .testimonial-description p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+}

@@ -11,7 +11,7 @@ import { createRoot } from "react-dom/client";
 import {
   ArrowDown, ArrowUpRight, Check, Clock3, Facebook,
   Instagram, Leaf, MapPin, Menu, Play, Quote, Star, X,
-  Phone, Mail, Sparkles, Heart , BookOpen
+  Phone, Mail, Sparkles, Heart , BookOpen, Smartphone
 } from "lucide-react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import "./styles.css";
@@ -88,13 +88,15 @@ function Reveal({ children, delay = 0, className = "" }) {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [videoOpen, setVideoOpen] = useState(false);
+  const [youtubeTestimonial, setYoutubeTestimonial] = useState(null);
+  
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 110, damping: 28 });
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen || videoOpen ? "hidden" : "";
+    document.body.style.overflow = menuOpen || videoOpen || youtubeTestimonial ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [menuOpen, videoOpen]);
+  }, [menuOpen, videoOpen, youtubeTestimonial]);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -192,6 +194,41 @@ function App() {
 
   </div>
 </Reveal>
+<a
+  className="hero-app-card"
+  href="https://play.google.com/store/apps/details?id=com.ecolife2026&hl=en_IN"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Open Ecolife Wellness App on Google Play"
+>
+  <img
+    src="/assets/ecolife-app-icon.png"
+    alt="Ecolife Wellness App"
+    className="hero-app-logo"
+  />
+
+  <div className="hero-app-info">
+    <span className="hero-app-kicker">
+      ECOLIFE WELLNESS APP
+    </span>
+
+    <h3>
+      Your yoga practice,
+      <em> wherever you are.</em>
+    </h3>
+
+    <p>
+      Live sessions · Recorded classes · Wellness content
+    </p>
+  </div>
+
+  <div className="hero-app-cta">
+    <span>Explore app</span>
+    <ArrowUpRight size={17} />
+  </div>
+</a>
+
+
           </div>
 
           <motion.div
@@ -301,27 +338,91 @@ function App() {
             </a>
           </div>
 
+          {/* Original Ecolife testimonial */}
           <div className="video-card">
-  <button
-    className="video-thumbnail"
-    onClick={() => setVideoOpen(true)}
-    aria-label="Play Ecolife testimonial"
-  >
-    <img
-      src="/assets/ecolife-review-cover.jpg"
-      alt="Ecolife Wellness testimonial"
-    />
+            <button
+              className="video-thumbnail"
+              onClick={() => setVideoOpen(true)}
+              aria-label="Play Ecolife testimonial"
+            >
+              <img
+                src="/assets/ecolife-review-cover.jpg"
+                alt="Ecolife Wellness testimonial"
+              />
 
-    <span className="video-play">
-      <Play size={24} fill="currentColor" />
-    </span>
+              <span className="video-play">
+                <Play size={24} fill="currentColor" />
+              </span>
 
-    <span className="video-label">
-      Watch testimonial
-      <ArrowUpRight size={14} />
-    </span>
-  </button>
-</div>
+              <span className="video-label">
+                Watch testimonial
+                <ArrowUpRight size={14} />
+              </span>
+            </button>
+          </div>
+
+          {/* Additional YouTube testimonials */}
+          <div className="video-card testimonial-extra-card">
+            <button
+              className="video-thumbnail"
+              onClick={() => setYoutubeTestimonial("uOSFID05Kq8")}
+              aria-label="Play Why Choose Ecolife testimonial"
+            >
+              <img
+                src="https://img.youtube.com/vi/uOSFID05Kq8/maxresdefault.jpg"
+                alt="Why Choose Ecolife testimonial"
+              />
+
+              <span className="video-play">
+                <Play size={24} fill="currentColor" />
+              </span>
+
+              <span className="video-label">
+                Watch testimonial
+                <ArrowUpRight size={14} />
+              </span>
+            </button>
+
+            <div className="testimonial-description">
+              <span>TESTIMONIAL</span>
+              <h3>Why Choose Ecolife</h3>
+              <p>
+                Discover why Ecolife has become a part of their wellness journey,
+                through yoga, mindful practice and everyday wellbeing.
+              </p>
+            </div>
+          </div>
+
+          <div className="video-card testimonial-extra-card">
+            <button
+              className="video-thumbnail"
+              onClick={() => setYoutubeTestimonial("KjW5l12XCrw")}
+              aria-label="Play A Journey with Ecolife testimonial"
+            >
+              <img
+                src="https://img.youtube.com/vi/KjW5l12XCrw/maxresdefault.jpg"
+                alt="A Journey with Ecolife testimonial"
+              />
+
+              <span className="video-play">
+                <Play size={24} fill="currentColor" />
+              </span>
+
+              <span className="video-label">
+                Watch testimonial
+                <ArrowUpRight size={14} />
+              </span>
+            </button>
+
+            <div className="testimonial-description">
+              <span>TESTIMONIAL</span>
+              <h3>A Journey with Ecolife</h3>
+              <p>
+                Hear a participant share their experience with Ecolife and how
+                regular yoga practice has become part of their daily routine.
+              </p>
+            </div>
+          </div>
 
           <div className="review-grid">
             {reviews.map((review, i) => (
@@ -403,9 +504,62 @@ function App() {
       </footer>
 
       {videoOpen && (
-        <div className="video-modal" role="dialog" aria-modal="true" aria-label="Ecolife testimonial video">
-          <button className="modal-close" onClick={() => setVideoOpen(false)} aria-label="Close video"><X /></button>
-          <video src="/videos/testimonial-full.mp4" controls autoPlay playsInline />
+        <div
+          className="video-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Ecolife testimonial video"
+          onClick={() => setVideoOpen(false)}
+        >
+          <button
+            className="modal-close"
+            onClick={() => setVideoOpen(false)}
+            aria-label="Close video"
+          >
+            <X />
+          </button>
+
+          <div
+            className="video-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <video
+              src="/videos/testimonial-full.mp4"
+              controls
+              autoPlay
+              playsInline
+            />
+          </div>
+        </div>
+      )}
+
+      {youtubeTestimonial && (
+        <div
+          className="video-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Ecolife YouTube testimonial"
+          onClick={() => setYoutubeTestimonial(null)}
+        >
+          <button
+            className="modal-close"
+            onClick={() => setYoutubeTestimonial(null)}
+            aria-label="Close video"
+          >
+            <X />
+          </button>
+
+          <div
+            className="video-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <iframe
+              src={`https://www.youtube.com/embed/${youtubeTestimonial}?autoplay=1&rel=0`}
+              title="Ecolife testimonial"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
         </div>
       )}
     </div>
